@@ -17,9 +17,6 @@ def issue = issueManager.getIssueObject(issueKey)
 assert issue: "Could not find issue with key $issueKey"
 
 def key = issue.key
-def status = "Success"
-def message = "Ticket created successfully"
-
 
 def CDemo = issue.getCustomFieldValue(CfCDemo).toString()
 
