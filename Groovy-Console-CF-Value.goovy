@@ -1,0 +1,27 @@
+import com.atlassian.crowd.model.group.Groups
+import static groovyx.net.http.ContentType.*
+import static groovyx.net.http.Method.*
+import com.atlassian.jira.component.ComponentAccessor
+import com.atlassian.jira.issue.fields.CustomField
+import com.atlassian.jira.issue.CustomFieldManager
+import com.atlassian.jira.issue.Issue
+
+def issueManager = ComponentAccessor.issueManager
+def issueKey = 'SDD-111' //for testing only
+
+def CfCDemo = ComponentAccessor.getCustomFieldManager().getCustomFieldObject("customfield_10244")
+//def customFieldManager = ComponentAccessor.getCustomFieldManager()
+
+def issue = issueManager.getIssueObject(issueKey)
+
+assert issue: "Could not find issue with key $issueKey"
+
+def key = issue.key
+def status = "Success"
+def message = "Ticket created successfully"
+
+
+def CDemo = issue.getCustomFieldValue(CfCDemo).toString()
+
+return CDemo
+
